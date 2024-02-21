@@ -10,8 +10,7 @@ public class Convertidor {
             System.out.println("1. Convertir entero a binario de 8 bits");
             System.out.println("2. Convertir binario de 8 bits a complemento a dos");
             System.out.println("3. Convertir hexadecimal de 3 dígitos a decimal y viceversa");
-            System.out.println("0. Salir
-            ");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
 
@@ -36,6 +35,18 @@ public class Convertidor {
         scanner.close();
     }
 
+    private static void convertirEnteroABinario(Scanner scanner) {
+        System.out.print("Ingrese un número entero: ");
+        int numero = scanner.nextInt();
+        String binario = "";
+        for (int i = 7; i >= 0; i--) {
+            binario += (numero >> i) & 1;
+        }
+        System.out.println("Binario de 8 bits: " + binario);
+    }
+
+    
+    
 
     
 }
