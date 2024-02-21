@@ -45,6 +45,20 @@ public class Convertidor {
         System.out.println("Binario de 8 bits: " + binario);
     }
 
+    private static void convertirBinarioAComplementoA2(Scanner scanner) {
+        System.out.print("Ingrese un número binario de 8 bits: ");
+        String binario = scanner.next();
+        String complementoA2 = "";
+        int carry = 1;
+        for (int i = 7; i >= 0; i--) {
+            complementoA2 = (((binario.charAt(i) - '0') ^ 1) | carry) + complementoA2;
+            if (binario.charAt(i) == '0' && carry == 1) {
+                carry = 0;
+            }
+        }
+        System.out.println("Complemento a dos: " + complementoA2);
+    }
+    
     
     
 
