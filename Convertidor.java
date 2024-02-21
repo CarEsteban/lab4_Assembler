@@ -59,6 +59,38 @@ public class Convertidor {
         System.out.println("Complemento a dos: " + complementoA2);
     }
     
+    private static void convertirHexadecimalADecimalYViceversa(Scanner scanner) {
+        System.out.println("Seleccione la conversión:");
+        System.out.println("1. Hexadecimal a Decimal");
+        System.out.println("2. Decimal a Hexadecimal");
+        System.out.print("Opción (1/2): ");
+        int opcion = scanner.nextInt();
+        scanner.nextLine(); // Limpiar el buffer del scanner
+        
+        if (opcion == 1) {
+            System.out.print("Ingrese un número hexadecimal de 3 dígitos: ");
+            String hexadecimal = scanner.next().toUpperCase();
+            int decimal = 0;
+            for (int i = 0; i < hexadecimal.length(); i++) {
+                char hexChar = hexadecimal.charAt(i);
+                int hexValue = hexChar >= 'A' ? (hexChar - 'A' + 10) : (hexChar - '0');
+                decimal = 16 * decimal + hexValue;
+            }
+            System.out.println("Decimal: " + decimal);
+        } else if (opcion == 2) {
+            System.out.print("Ingrese un número decimal: ");
+            int decimal = scanner.nextInt();
+            String hexadecimal = "";
+            while (decimal > 0) {
+                int rem = decimal % 16;
+                hexadecimal = (rem < 10 ? Integer.toString(rem) : String.valueOf((char)('A' + rem - 10))) + hexadecimal;
+                decimal = decimal / 16;
+            }
+            System.out.println("Hexadecimal: " + hexadecimal);
+        } else {
+            System.out.println("Opción no válida. Por favor, seleccione 1 o 2.");
+        }
+    }
     
     
 
